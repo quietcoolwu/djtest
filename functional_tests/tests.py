@@ -77,6 +77,7 @@ class NewVisitorTest(LiveServerTestCase):
         # 新用户获得属于自己的URL
         francis_lists_url = self.browser.current_url
         self.assertRegex(francis_lists_url, '/lists/.+')
+        self.assertNotEqual(francis_lists_url, edith_lists_url)
 
         # 确认这个页面没有旧用户的清单
         page_text = self.browser.find_element_by_tag_name('body').text
